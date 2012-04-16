@@ -1,7 +1,7 @@
 <?php
 
 $link = 'admin/'.KickAssetAdmin::$url_segment;
-CMSMenu::replace_menu_item("AssetAdmin",_t('KickAssetAdmin.BROWSE','Browse files...'),$link,"KickAssetAdmin",2);
+#CMSMenu::replace_menu_item("AssetAdmin",_t('KickAssetAdmin.BROWSE','Browse files...'),$link,"KickAssetAdmin",2);
 
 // We're using our own custom menu insertion. Don't need another one.
 CMSMenu::remove_menu_item("KickAssetAdmin");
@@ -17,4 +17,4 @@ if($dir != "kickassets") {
 
 LeftAndMain::require_javascript("kickassets/javascript/fancybox/fancybox.js");
 LeftAndMain::require_css("kickassets/javascript/fancybox/fancybox.css");
-LeftAndMain::require_javascript("kickassets/javascript/kickassets_init.js");
+#LeftAndMain::require_javascript("kickassets/javascript/kickassets_init.js");
