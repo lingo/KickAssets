@@ -50,8 +50,10 @@ font-weight:bold;
 .FileAttachmentField.single .file_info {padding-top:10px;}
 .FileAttachmentField .file_name {font-size:12px;margin:5px 0;}
 
-.FileAttachmentField.multi .multi_actions {float:right;padding-top:6px;letter-spacing:3px;}
+.FileAttachmentField.multi .multi_actions { position: absolute; right: 6px; top: 11px; letter-spacing:3px;}
 .FileAttachmentField.multi .multi_actions a:hover {background:transparent;}
+.FileAttachmentField.multi .file_block { position: relative; }
+.FileAttachmentField.multi .file_block .caption { display: block; margin-left: 5.1em; font-style: italic; margin-top: -0.65em;}
 .FileAttachmentField.multi .file_block .name,
 .FileAttachmentField.multi .file_block .size {vertical-align:50%}
 .FileAttachmentField.multi .file_block .name {font-size:12px;}
