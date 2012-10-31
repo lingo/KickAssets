@@ -137,7 +137,9 @@ $(function() {
           var form = new FormData();
 
           for (var i = 0; i < files.length; i++) {
+            var name = prompt("Enter caption for " + files[i].name, files[i].name);
             form.append('file[]', files[i]);
+            form.append('caption[]', name);
           }
 
           http.open('POST', url);
