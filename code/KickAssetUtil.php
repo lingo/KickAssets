@@ -128,9 +128,11 @@ abstract class KickAssetUtil {
 				$fileIDs[] = $newFile;
 				$fileObj = DataObject::get_one('File', "\"File\".\"ID\"=$newFile");
 				if (method_exists($fileObj, 'onAfterUpload')) $fileObj->onAfterUpload();
-				if (isset($captions[$idx]) && !empty($captions[$idx]) && $captions[$idx] != $fileObj->Title) {
-					$fileObj->Title = $captions[$idx];
-					$fileObj->write();
+				if (isset($captions[$idx]) && !empty($captions[$idx]) && $captions[$idx] != $fileObj->Name) {
+					if ($fileObj->hasField('Caption')) {
+						$fileObj->Caption = $captions[$idx];
+						$fileObj->write();
+					}
 				}
 			}
 		}
