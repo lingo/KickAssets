@@ -117,12 +117,12 @@ abstract class KickAssetUtil {
 					}
 					
 					foreach($newFiles as $newFile) {
-						$fileIDs[] = $newFile;
-						$fileObj = DataObject::get_one('File', "\"File\".\"ID\"=$newFile");
-						if (method_exists($fileObj, 'onAfterUpload')) $fileObj->onAfterUpload();
+				$fileIDs[] = $newFile;
+				$fileObj = DataObject::get_one('File', "\"File\".\"ID\"=$newFile");
+				if (method_exists($fileObj, 'onAfterUpload')) $fileObj->onAfterUpload();
 					}
 				}
-			}			
+			}
 		}
 		else {
 			return "File is too large.";
