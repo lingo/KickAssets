@@ -70,6 +70,8 @@ span.file_upload_btn.button {}
 
 
 #footer {clear:both;height:32px;background:#ccc;width:100%;padding:6px 0;visibility:hidden;}
+#loading {float:right;padding-right:10px;height:32px;}
+#loading img { display: block; margin-top: 8px; }
 #search {width:200px;float:right;padding-right:10px;height:32px;}
 #search input {background:#fff url(../images/search.png) no-repeat 0 1px;border:1px solid #999;-moz-border-radius:15px;-webkit-border-radius:15px;margin:3px 0 0 10px;padding:4px 4px 4px 24px;color:#666;}
 #actions {width:75%;float:right;height:32px;}
