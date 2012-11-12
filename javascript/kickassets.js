@@ -307,6 +307,7 @@ $(document).ready(function() {
 				if(callback && typeof(callback) == "function") {
 					callback();
 				}
+				$('#loading').hide();
 			});
 			$('#drop').addClass('open');
 
