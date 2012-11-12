@@ -12,7 +12,7 @@
 			<div class="file_block">
 				<img class="fieldHandler" alt="Drag to rearrange order of fields" src="sapphire/images/drag.gif" style="cursor: move;">
 				<span class="thumb"><img src="$Thumb" height="24" /></span> <span class="name">$Name</span> <span class="size">($Size)</span>
-				<span class="caption">$Title</span> 
+				<span class="caption">$Caption</span> 
 				<span class="multi_actions">
 				<a href="$EditLink" class="file_attach_btn" data-id="$ID" title="<% _t('FileAttachmentField.EDIT','Edit') %>"><img src="kickassets/images/edit.png" height="14" /></a>
 				<a href="javascript:void(0);" class="detach_btn" data-id="$ID" title="<% _t('FileAttachmentField.DETACH','Detach') %>"><img src="kickassets/images/remove.png" height="14" /></a>
