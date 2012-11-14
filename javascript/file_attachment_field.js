@@ -31,14 +31,18 @@ $(function() {
 			'onCleanup'			: function() {
 				var ids = $('#fancybox-frame').contents().find('#selected_files').text();
 				if(!ids.length) return;
-				ids = ids.split(',');
-				ids = ids.concat(fetchIDs($parentField));
 				
 				var $wrap = $parentField.closest('.FileAttachmentField');
-
+				// make sure we don't lose any unsaved files.
+				if($wrap.is('.multi')) {
+					$wrap.find('.file_block').each(function() {
+						ids += ',';
+						ids += $(this).find(':hidden').val();
+					})
+				}
 				$wrap.find('.attached_files').load(
 					$parentField.attr('data-refreshlink'),
-					{ 'ids' : ids }
+					{ 'ids' : ids.split(',') }
 				);
 				$parentField = null;
 			}
