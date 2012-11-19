@@ -9,11 +9,13 @@ $(function() {
 		// make sure we don't lose any unsaved files.
 		if($wrap.is('.multi')) {
 			$wrap.find('.file_block').each(function() {
-				ids.push( $(this).find(':hidden').val() );
+				ids.push( jQuery(this).find(':hidden').val() );
 			});
 		}
 		return ids;
 	}
+
+	window.fetchIDs = fetchIDs;
 
 	$('.file_attach_btn').livequery(function() {
 		$(this).fancybox({
