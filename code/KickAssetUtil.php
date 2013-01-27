@@ -70,13 +70,8 @@ abstract class KickAssetUtil {
 		}
 		$newFiles = array ();
 		$errorResponse = "";
-		$captions = null;
-		if (isset($_POST['caption'])) {
-			$captions = $_POST['caption'];
-		}
 		if(isset($_FILES['file']) && is_array($_FILES['file'])) {
 			$file_array = $_FILES['file'];
-			$i = 0;
 			foreach($file_array['tmp_name'] as $index => $value) {
 				if(is_uploaded_file($value)) {
 					$tmpFile = array (
@@ -115,24 +110,18 @@ abstract class KickAssetUtil {
 					// move file to given folder
 					if($valid) {
 						$newFile = $folder->addUploadToFolder($tmpFile);
-						$newFiles[$i] = $newFile;
+						$newFiles[] = $newFile;
 					}
 					else {
 						return $errorResponse;
 					}
 					
 				}
-				++$i;
-			}			
-			foreach($newFiles as $idx => $newFile) {
-				$fileIDs[] = $newFile;
-				$fileObj = DataObject::get_one('File', "\"File\".\"ID\"=$newFile");
-				if (method_exists($fileObj, 'onAfterUpload')) $fileObj->onAfterUpload();
-				if (isset($captions[$idx]) && !empty($captions[$idx]) && $captions[$idx] != $fileObj->Name) {
-					if ($fileObj->hasField('Caption')) {
-						$fileObj->Caption = $captions[$idx];
-						$fileObj->write();
-					}
+			}
+				foreach($newFiles as $newFile) {
+					$fileIDs[] = $newFile;
+					$fileObj = DataObject::get_one('File', "\"File\".\"ID\"=$newFile");
+					if (method_exists($fileObj, 'onAfterUpload')) $fileObj->onAfterUpload();
 				}
 			}
 		}
