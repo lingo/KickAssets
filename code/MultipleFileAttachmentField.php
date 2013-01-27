@@ -70,7 +70,20 @@ class MultipleFileAttachmentField extends KickAssetField {
 			$files = new DataObjectSet();
 			$implodestring = implode(',',$ids);
 			$implodestring = preg_replace("/^[,]/", "", $implodestring);
-			if($set = DataObject::get("File", "`File`.`ID` IN ($implodestring)")) {
+			$many_many_parent = $this->getForm()->getRecord();
+			$set = null;
+			if ($many_many_parent->hasExtension('ManyManySortable')) {
+				$sorted = $many_many_parent->ManyManySorted(null, $this->Name());
+				$set = new DataObjectSet();
+				foreach($sorted as $ob) {
+					if (in_array($ob->ID, $ids)) {
+						$set->push($ob);
+					}
+				}
+			} else {
+				$set = DataObject::get("File", "`File`.`ID` IN ($implodestring)");
+			}
+			if($set) {
 				foreach($set as $file) {
 					$this->processFile($file);
 					$files->push($file);					
