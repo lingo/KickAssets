@@ -116,11 +116,12 @@ abstract class KickAssetUtil {
 						return $errorResponse;
 					}
 					
-					foreach($newFiles as $newFile) {
+				}
+			}
+				foreach($newFiles as $newFile) {
 				$fileIDs[] = $newFile;
 				$fileObj = DataObject::get_one('File', "\"File\".\"ID\"=$newFile");
 				if (method_exists($fileObj, 'onAfterUpload')) $fileObj->onAfterUpload();
-					}
 				}
 			}
 		}
