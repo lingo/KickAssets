@@ -73,7 +73,8 @@ class MultipleFileAttachmentField extends KickAssetField {
 			$implodestring = implode(',',$ids);
 			$implodestring = preg_replace("/^[,]/", "", $implodestring);
 			if($set = DataObject::get("File", "`File`.`ID` IN ($implodestring)")) {
-				foreach($set as $file) {
+				foreach($ids as $item) { // keep items in same order as sent
+					$file = $set->find('ID', $item);
 					$this->processFile($file);
 					$files->push($file);					
 				}
