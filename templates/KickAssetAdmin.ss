@@ -12,7 +12,6 @@
 			<div id="search">
 				<input type="text" name="search" />
 			</div>
-			<div id="loading"><img src="kickassets/images/loader.gif" alt="Loading, please wait..."></div>
 
 		</div>
 		
