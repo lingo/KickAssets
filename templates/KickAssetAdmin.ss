@@ -12,6 +12,7 @@
 			<div id="search">
 				<input type="text" name="search" />
 			</div>
+			<div class="progress_wrap"><div class="progress"></div></div>
 
 		</div>
 		

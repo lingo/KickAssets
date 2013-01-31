@@ -120,6 +120,7 @@ $(function() {
 		var $progressBar = $t.closest('.FileAttachmentField').find('.progress');
 
 		$progressBar.parent().css('visibility', 'visible');
+		$progressBar.css('width', '0');
 		// Update progress bar
 		http.upload.addEventListener("progress", function (evt) {
 			if (evt.lengthComputable) {

@@ -1,6 +1,9 @@
 (function($) {
 	var refreshFiles = function() {
-		$('#drop').load(window.location.href);
+		$('#drop').load(window.location.href, null, function() {
+			var $progressBar = $('.progress');
+			$progressBar.parent().css('visibility', 'hidden');
+		});
 	};
 
 
@@ -345,20 +348,21 @@ $(document).ready(function() {
 
 	var doUpload = function(files, url) {
 		var http = new XMLHttpRequest();
-		var $progressBar = $('#progress');
-		var uploadTimeout = window.setTimeout(function() {
+		var $progressBar = $('.progress');
+		$progressBar.parent().css('visibility', 'visible');
+		$progressBar.css('width', '0');
 		// Update progress bar
 		http.upload.addEventListener("progress", function (evt) {
 			if (evt.lengthComputable) {
 				$progressBar.css('width', (evt.loaded / evt.total) * 100 + "%");
 			}
 			else {
+				$progressBar.css('width', '50%');
 			}
 		}, false);
-		},1000);
 
 		http.addEventListener("load", function () {
-			window.clearTimeout(uploadTimeout);
+			$progressBar.css('width', '100%');
 			if(http.status != "200") {
 				apprise(http.responseText, {appendTo:'#drop'});
 			}
