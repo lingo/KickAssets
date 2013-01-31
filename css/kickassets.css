@@ -80,7 +80,7 @@ span.file_upload_btn.button {}
 #progress {width:50%;height:52px;background:blue;}
 #status {text-align:center;margin:0 200px 0 200px;}
 
-.progress_wrap {visibility: hidden; height:10px;border:1px solid #ccc;padding:3px;margin: 8px 0;width:300px;-moz-border-radius:10px;-webkit-border-radius:10px;float: right;}
+.progress_wrap {visibility: hidden; height:10px;border:1px solid #ccc;padding:3px;margin: 8px 0;width: 200px;-moz-border-radius:10px;-webkit-border-radius:10px;position: absolute;right: 205px;}
 
 .progress {
   height:10px;width:0;background:rgb(96,171,213);-moz-border-radius:5px;-webkit-border-radius:5px;
