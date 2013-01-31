@@ -119,7 +119,6 @@ $(function() {
 		}
 		var $progressBar = $t.closest('.FileAttachmentField').find('.progress');
 
-		var uploadTimeout = window.setTimeout(function() {
 		$progressBar.parent().css('visibility', 'visible');
 		// Update progress bar
 		http.upload.addEventListener("progress", function (evt) {
@@ -127,14 +126,13 @@ $(function() {
 				$progressBar.css('width', (evt.loaded / evt.total) * 100 + "%");
 			}
 			else {
+				$progressBar.css('width', '50%');
 			}
 		}, false);
-		},1000);
 		url = $t.attr('data-uploadurl');
 
 		http.addEventListener("load", function () {
-			window.clearTimeout(uploadTimeout);
-			$progressBar.parent().css('visibility','hidden');
+			$progressBar.css('width', '100%');
 			if(http.status != "200") {
 				alert(http.responseText);
 			}
@@ -148,6 +146,7 @@ $(function() {
 					{ 'ids' : ids }
 				);
 			}
+			$progressBar.parent().css('visibility','hidden');
 		}, false);
 
 
