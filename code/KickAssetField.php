@@ -62,7 +62,7 @@ abstract class KickAssetField extends FormField {
 		else {
 			$file->Thumb = KickAssetUtil::get_icon($file);						
 		}
-		$file->EditLink = Director::absoluteBaseURL() . "/admin/files/select/{$file->ParentID}?edit=$file->ID";
+		$file->EditLink = Director::absoluteURL("/admin/files/select/{$file->ParentID}?edit=$file->ID");
 		$file->RemoveLink = $this->Link('deletefile?id='.$file->ID);
 	}
 	
