@@ -470,7 +470,7 @@ class KickAssetAdmin extends LeftAndMain implements PermissionProvider {
 	 * @return DataObjectSet
 	 */
 	public function Folders() {
-		$set = DataObject::get("Folder","ParentID = {$this->getCurrentFolderID()}");
+		$set = DataObject::get("Folder","ParentID = {$this->getCurrentFolderID()}", 'Filename');
 		if(!$set) return false;
 		
 		$ret = new DataObjectSet();
@@ -494,7 +494,7 @@ class KickAssetAdmin extends LeftAndMain implements PermissionProvider {
 			$className = self::$limit_file_type;
 			$where = "ClassName = '{$className}' AND ParentID = {$this->getCurrentFolderID()}";
 		}
-		$set = DataObject::get($className, $where);
+		$set = DataObject::get($className, $where, 'Filename');
 		if(!$set) return false;
 		$ret = new DataObjectSet();
 		foreach($set as $file) {
