@@ -4,11 +4,11 @@ body#KickAssets {
 
 #directory_list {padding:10px;}
 #directory_list li {list-style:none;}
-#directory_list.gallery li {width:150px;height:84px;float:left;margin:0 16px 16px 0;padding:0;}
+#directory_list.gallery li {width:150px;height:112px;float:left;margin:0 16px 16px 0;padding:0;}
 #directory_list li a {text-decoration:none;}
 #directory_list.gallery li span {text-align:center;}
 #directory_list li span {color:#666;display:block;font-size:12px;overflow:hidden;}
-#directory_list.gallery li .pad {width:auto;overflow:hidden;text-align:center;margin-bottom:5px;padding:5px}
+#directory_list.gallery li .pad {width:auto;overflow:hidden;text-align:center;padding:5px}
 #directory_list.gallery li.ui-selected .pad {background:#ddd;}
 #directory_list li.ui-selected span {background:rgb(56,117,215);color:white;}
 #directory_list.gallery li.ui-selected span {-moz-border-radius:5px;-webkit-border-radius:5px;}
